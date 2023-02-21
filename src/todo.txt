@@ -2,4 +2,4 @@
 [  ] install codemirror
 [  ] pressing tab inside the code editor should indent/dedent
 [  ] save and load solutions
-[  ] can't figure out why console errors are duplicated
+[  ] can't figure out why console errors are duplicated, might be able to just filter by url
