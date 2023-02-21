@@ -1,19 +1,28 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import runTest from "./testRunner";
 
 const Challenge = ({ challenge }) => {
-  const [solution, setSolution] = useState("");
-  const handleSolutionChange = (event) => {
-    setSolution(event.target.value);
+  const [sourceCode, setSourceCode] = useState("");
+  const handleSourceCodeChange = (event) => {
+    setSourceCode(event.target.value);
   }
+
+  useEffect(() => {
+    setSourceCode("solution = () => ")
+  }, [challenge.id])
+
   const checkSolution = () => {
-    const solutionFn = eval(solution);
+    let solution = null;
+    eval(sourceCode);
     const summaries = [];
 
     challenge.tests.forEach((test) => {
-      const [passed, testResult] = runTest(test, solutionFn);
+      const [passed, testResult] = runTest(test, solution);
       console.log(passed);
+      if (passed === null) {
+        return false;
+      }
       const label = passed ? "OK  " : "Fail";
       const readableArgs = test[0].map((e) => JSON.stringify(e)).join(", ")
       let testSummary = `${label} f(${readableArgs}) is ${JSON.stringify(test[1])}`;
@@ -32,9 +41,9 @@ const Challenge = ({ challenge }) => {
     </div>
     <div>
       <textarea 
-        value={solution} 
+        value={sourceCode} 
         rows={10} cols={80} 
-        onChange={handleSolutionChange}
+        onChange={handleSourceCodeChange}
       />
       <br />
       <Button

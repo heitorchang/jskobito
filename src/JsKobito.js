@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "@mui/system";
 import Challenge from "./Challenge";
-import { emptyChallenge, challengeData } from "./challengeData";
+import { placeholderChallenge, challengeData } from "./challengeData";
 
 const JsKobito = () => {
-  const [selectedChallenge, setSelectedChallenge] = useState(emptyChallenge);
+  const [selectedChallenge, setSelectedChallenge] = useState(placeholderChallenge);
+
+  useEffect(() => {
+    window.onerror = (err, url, line) => {
+      console.log(`Error ${err}`);
+      return false;
+    }
+  }, [])
 
   return (
     <Container>
@@ -26,7 +33,8 @@ const JsKobito = () => {
         );
       })}
       <div>
-        <h3>Challenge</h3>
+        <h3>Challenge (open console to debug while it's not shown directly)</h3>
+        <h3>Also, see todo.txt</h3>
         <Challenge challenge={selectedChallenge} />
       </div>
     </Container>

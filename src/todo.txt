@@ -1,0 +1,5 @@
+[  ] place cursor in the argument list of the prompt
+[  ] install codemirror
+[  ] pressing tab inside the code editor should indent/dedent
+[  ] save and load solutions
+[  ] can't figure out why console errors are duplicated

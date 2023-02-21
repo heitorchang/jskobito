@@ -1,9 +1,9 @@
-export const emptyChallenge = {
-  id: "emptyChallenge",
-  name: "Empty Challenge",
-  description: "No challenge.",
+export const placeholderChallenge = {
+  id: "placeholderChallenge",
+  name: 'Return "hello world"',
+  description: 'Return the string "hello world" (exactly as shown)',
   tests: [
-    [[0], 0],
+    [[], "hello world"],
   ]
 }
 export const challengeData = {
