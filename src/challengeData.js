@@ -33,6 +33,25 @@ export const challengeData = {
             [[[0, 0, 0], 1], 0],
             [[[1], 0], 1],
           ]
+        },
+        {
+          id: "arraysRepeat",
+          name: "Repeat an array n times",
+          description: "Repeat the given array n times.",
+          tests: [
+            [[[1, 2], 3], [1, 2, 1, 2, 1, 2]],
+            [[[0], 1], [0]],
+            [[[1], 5], [1, 1, 1, 1, 1]],
+          ]
+        },
+        {
+          id: "arraysMembership",
+          name: "Check if an item is in the given array",
+          description: "Return true if the item is in the array, false otherwise.",
+          tests: [
+            [["a", ["a", "b", "c"]], true],
+            [[3, [0, 1, 2]], false],
+          ]
         }
       ]
     },

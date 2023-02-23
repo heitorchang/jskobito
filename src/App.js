@@ -1,10 +1,11 @@
+import { RecoilRoot } from "recoil";
 import JsKobito from "./JsKobito";
 
 function App() {
   return (
-    <div className="App">
+    <RecoilRoot>
       <JsKobito />
-    </div>
+    </RecoilRoot>
   );
 }
 

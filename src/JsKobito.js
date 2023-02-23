@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Container } from "@mui/system";
 import Challenge from "./Challenge";
+import KobitoJudge from "./KobitoJudge";
 import { placeholderChallenge, challengeData } from "./challengeData";
 
 const JsKobito = () => {
-  const [selectedChallenge, setSelectedChallenge] = useState(placeholderChallenge);
+  const [selectedChallenge, setSelectedChallenge] = useState(null);
 
   useEffect(() => {
     window.onerror = (err, url, line) => {
@@ -35,7 +36,10 @@ const JsKobito = () => {
       <div>
         <h3>Challenge (open console to debug while it's not shown directly)</h3>
         <h3>Also, see todo.txt</h3>
-        <Challenge challenge={selectedChallenge} />
+        {selectedChallenge ? <Challenge challenge={selectedChallenge} /> : <></>}
+      </div>
+      <div>
+        <KobitoJudge />
       </div>
     </Container>
   )
